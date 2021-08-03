@@ -4,15 +4,132 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/deepblue"
     tools:context=".MainActivity">
 
-    <TextView
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/upcomingButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/all_upcoming_competitions"
+        android:textColor="@color/deepblue"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/codechefButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/deepblue" />
+
+    <Button
+        android:id="@+id/codechefButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/codechef"
+        android:textColor="@color/deepblue"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/upcomingButton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@color/deepblue" />
+
+    <Button
+        android:id="@+id/codeforcesButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/codeforces"
+        android:textColor="@color/deepblue"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/hackerrankButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upcomingButton"
+        app:rippleColor="@color/deepblue" />
+
+    <Button
+        android:id="@+id/hackerrankButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/hackerrank"
+        android:textColor="@color/deepblue"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/codeforcesButton"
+        app:layout_constraintTop_toBottomOf="@+id/codechefButton"
+        app:rippleColor="@color/deepblue" />
+
+    <Button
+        android:id="@+id/leetcodeButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/leetcode"
+        android:textColor="@color/deepblue"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/hackerearthButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/codeforcesButton"
+        app:rippleColor="@color/deepblue" />
+
+    <Button
+        android:id="@+id/hackerearthButton"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="@color/off_white"
+        android:text="@string/hackerearth"
+        android:textColor="@color/deepblue"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/leetcodeButton"
+        app:layout_constraintTop_toBottomOf="@+id/hackerrankButton"
+        app:rippleColor="@color/deepblue" />
+
+    <TextView
+        android:id="@+id/headingText"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/problem_solving_timer"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leetcodeButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

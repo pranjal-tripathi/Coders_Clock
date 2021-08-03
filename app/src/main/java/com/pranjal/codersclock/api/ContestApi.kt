@@ -10,7 +10,7 @@ interface ContestApi {
     suspend fun getHackerRankContest(): Response<List<HackerEarthContest>>
 
     @GET("/api/contest.list")
-    suspend fun getCodeforcesContest(): Response<List<CodeforcesContest>>
+    suspend fun getCodeforcesContest(): Response<ResponseRe>
 
     @GET("/rest/contests/upcoming?limit=20")
     suspend fun getHackerRankGeneralContest(): Response<List<HackerRankGeneralContest>>
