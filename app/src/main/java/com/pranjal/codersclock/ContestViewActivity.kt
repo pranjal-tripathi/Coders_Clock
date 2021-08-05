@@ -23,6 +23,16 @@ class ContestViewActivity : AppCompatActivity() {
         binding = ContestViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupRecyclerView()
+        refreshContestData()
+    }
+
+    private fun setupRecyclerView() = binding.contestRecyclerView.apply {
+        contestAdapter = ContestAdapter()
+        adapter = contestAdapter
+        layoutManager = LinearLayoutManager(this@ContestViewActivity)
+    }
+
+    private fun refreshContestData() {
         lifecycleScope.launchWhenCreated {
             binding.contestProgressBar.isVisible = true
             val response = try {
@@ -44,11 +54,5 @@ class ContestViewActivity : AppCompatActivity() {
             }
             binding.contestProgressBar.isVisible = false
         }
-    }
-
-    private fun setupRecyclerView() = binding.contestRecyclerView.apply {
-        contestAdapter = ContestAdapter()
-        adapter = contestAdapter
-        layoutManager = LinearLayoutManager(this@ContestViewActivity)
     }
 }

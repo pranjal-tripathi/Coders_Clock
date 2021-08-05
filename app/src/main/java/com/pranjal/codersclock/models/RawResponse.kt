@@ -1,6 +1,6 @@
 package com.pranjal.codersclock.models
 
-data class ResponseRe(
+data class RawResponse(
     val status: String,
     val result: List<CodeforcesContest>
 )

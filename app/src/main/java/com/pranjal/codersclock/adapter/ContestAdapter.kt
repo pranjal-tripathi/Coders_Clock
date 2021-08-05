@@ -14,7 +14,7 @@ class ContestAdapter : RecyclerView.Adapter<ContestAdapter.ContestViewHolder>() 
     inner class ContestViewHolder(val binding: ContestViewAdapterBinding) : RecyclerView.ViewHolder(binding.root), View.OnClickListener {
 
         override fun onClick(v: View?) {
-            
+
         }
     }
 
