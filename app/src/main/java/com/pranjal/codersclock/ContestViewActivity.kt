@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.pranjal.codersclock.adapter.ContestAdapter
 import com.pranjal.codersclock.api.RetrofitInstance
 import com.pranjal.codersclock.databinding.ContestViewBinding
+import com.pranjal.codersclock.db.Contest
+import com.pranjal.codersclock.utils.ContestDbToContestViewConverter
 import com.pranjal.codersclock.utils.ResponseHandler
 import retrofit2.HttpException
 import java.io.IOException
@@ -23,7 +25,12 @@ class ContestViewActivity : AppCompatActivity() {
         binding = ContestViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupRecyclerView()
+        //displayContests()
         refreshContestData()
+    }
+
+    private fun displayContests(contests: List<Contest>) {
+
     }
 
     private fun setupRecyclerView() = binding.contestRecyclerView.apply {
@@ -47,8 +54,9 @@ class ContestViewActivity : AppCompatActivity() {
                 return@launchWhenCreated
             }
             if (response.isSuccessful && response.body() != null) {
-                contestAdapter.contests = ResponseHandler.handleCodeforcesResponse(ResponseHandler
+                var contestList = ResponseHandler.handleCodeforcesResponse(ResponseHandler
                     .handleRawResponse(response.body()!!))
+                contestAdapter.contests = ContestDbToContestViewConverter.convertToView(contestList)
             } else {
                 Toast.makeText(this@ContestViewActivity, "No data to show...", Toast.LENGTH_SHORT).show()
             }

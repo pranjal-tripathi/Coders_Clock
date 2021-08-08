@@ -1,7 +1,7 @@
 package com.pranjal.codersclock.utils
 
+import com.pranjal.codersclock.db.Contest
 import com.pranjal.codersclock.models.CodeforcesContest
-import com.pranjal.codersclock.models.Contest
 import com.pranjal.codersclock.models.RawResponse
 
 object ResponseHandler {
@@ -12,15 +12,13 @@ object ResponseHandler {
         var contests: MutableList<Contest> = mutableListOf()
         for(cfContest in response) {
             var contest = Contest(
-                cfContest.startTimeSeconds.toString(),
-                null,
-                null,
-                null,
-                cfContest.startTimeSeconds.toString(),
-                null,
-                null,
+                0,
                 cfContest.name,
-                null
+                cfContest.startTimeSeconds * 1000,
+                cfContest.startTimeSeconds * 1000,
+                cfContest.durationSeconds * 1000,
+                cfContest.name,
+                "false"
             )
             contests.add(contest)
         }
