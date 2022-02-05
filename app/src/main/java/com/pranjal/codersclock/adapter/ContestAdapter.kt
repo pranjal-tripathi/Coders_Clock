@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.pranjal.codersclock.databinding.ContestViewAdapterBinding
-import com.pranjal.codersclock. models.Contest
+import com.pranjal.codersclock.models.Contest
 
 class ContestAdapter : RecyclerView.Adapter<ContestAdapter.ContestViewHolder>() {
 
@@ -20,7 +20,7 @@ class ContestAdapter : RecyclerView.Adapter<ContestAdapter.ContestViewHolder>() 
 
     private val diffCallBack = object : DiffUtil.ItemCallback<Contest>() {
         override fun areItemsTheSame(oldItem: Contest, newItem: Contest): Boolean {
-            return oldItem.contestName == newItem.contestName
+            return oldItem.name == newItem.name
         }
 
         override fun areContentsTheSame(oldItem: Contest, newItem: Contest): Boolean {
@@ -47,10 +47,10 @@ class ContestAdapter : RecyclerView.Adapter<ContestAdapter.ContestViewHolder>() 
     override fun onBindViewHolder(holder: ContestViewHolder, position: Int) {
         holder.binding.apply {
             val contest = contests[position]
-            var name = contest.contestName
+            var name = contest.name
             var startTime = contest.startTime
-            var duration = contest.duration
-            contestText.text = "$name \n Start - $startTime \n Duration - $duration"
+            var endTime = contest.endTime
+            contestText.text = "$name \n Start - $startTime \n End - $endTime"
         }
     }
 

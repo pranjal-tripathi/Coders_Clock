@@ -12,5 +12,8 @@ data class Contest(
     @ColumnInfo(name = "end_time") val endTime: Long,
     @ColumnInfo(name = "duration") val duration: Long,
     @ColumnInfo(name = "url") val url: String,
+    @ColumnInfo(name = "site") val site: String,
+    @ColumnInfo(name = "in_24_hours") val in24Hours: String,
+    @ColumnInfo(name = "status") val status: String,
     @ColumnInfo(name = "reminder") val reminder: String
 )

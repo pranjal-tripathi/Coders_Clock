@@ -11,14 +11,10 @@ abstract class ContestDatabase: RoomDatabase() {
     abstract fun contestDao(): ContestDao
 
     companion object {
-        // Singleton prevents multiple instances of database opening at the
-        // same time.
         @Volatile
         private var INSTANCE: ContestDatabase? = null
 
         fun getDatabase(context: Context): ContestDatabase {
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
@@ -26,7 +22,6 @@ abstract class ContestDatabase: RoomDatabase() {
                     "contest_database"
                 ).build()
                 INSTANCE = instance
-                // return instance
                 instance
             }
         }
